@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Access Portal · Zayed University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts load without blocking the page; system fonts are used until (or unless) they arrive. -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%238e011c%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-size=%2213%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EZU%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Everything is rendered by app.js after the CSV files in ./data are loaded. -->
+  <div id="root">
+    <div class="boot">
+      <div class="boot-mark">ZU</div>
+      <p id="boot-msg">Loading university data…</p>
+      <div class="boot-bar"><i id="boot-bar"></i></div>
+    </div>
+  </div>
+  <script>
+    // If app.js never runs (e.g. index.html was opened from inside the ZIP), say so instead of spinning forever.
+    setTimeout(function () {
+      if (window.SAP_BOOTED) return;
+      document.getElementById('boot-msg').innerHTML =
+        '<b>The portal files did not load.</b><br>If you opened index.html from inside the ZIP, extract it first ' +
+        '(right-click the ZIP &rarr; <b>Extract All</b>), then double-click <b>start.bat</b> in the extracted folder.';
+    }, 3000);
+  </script>
+  <script src="app.js"></script>
+  <script src="campus-map.js"></script>
+</body>
+</html>
